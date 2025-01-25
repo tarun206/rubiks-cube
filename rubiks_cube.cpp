@@ -775,14 +775,12 @@ public:
                                 temporary_number = intermediate_buffer[j];
                                 face5[i][j] = temporary_number;
                             }
-                        }
-
                         for (int i = 0; i < 256; i++)
                         {
                             intermediate_buffer[i] = 0;
                             row_copy[i] = 0;
                         }
-
+                    }
                     else if (rotation_choice == 'L')
                     {
                         /* Explanation of the below statements:
@@ -1259,7 +1257,6 @@ public:
                             }
                         }
                     }
-                }
             }
 
             else if (face_choice == 5)
@@ -1401,7 +1398,6 @@ public:
                             intermediate_buffer[i] = 0;
                             row_copy[i] = 0;
                         }
-
                 }
 
                 else if (choice == 'c')
@@ -1539,7 +1535,6 @@ public:
                         }
                     }
                 }
-            }
 
             else if (face_choice == 6)
             {
@@ -1817,8 +1812,8 @@ public:
                         }
                     }
                 }
-            }
-        return move_list;
+                return move_list;
+        }
     }
 
     void display()
@@ -2018,5 +2013,13 @@ public:
 
 int main()
 {
+    rubiks_cube rc;
+    rc.populate_faces();
+    vector <char> move_list;
 
+    while (1)
+    {
+        rc.display();
+        move_list = rc.interact();
+    }
 }
