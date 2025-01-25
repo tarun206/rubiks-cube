@@ -224,7 +224,13 @@ public:
                                 temporary_number = intermediate_buffer[j];
                                 face5[i][j] = temporary_number;
                             }
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
                         }
+
+                    }
 
                     else if (rotation_choice == 'L')
                     {
@@ -300,7 +306,7 @@ public:
                     cin >> rotation_choice;
 
                     if (rotation_choice == 'U')
-                        {
+                    {
                             /* Explanation of the below statements:
                             * The below statements rotate the columns in the upwards direction.
                             */
@@ -355,6 +361,562 @@ public:
                                     temporary_number = intermediate_buffer[j];
                                     face5[i][j] = temporary_number;
                                 }
+                           for (int i = 0; i < 256; i++)
+                           {
+                             intermediate_buffer[i] = 0;
+                             row_copy[i] = 0;
+                           }
+                    }
+
+                        else if (rotation_choice == 'D')
+                        {
+                            /* Explanation of the below statements:
+                            * The below statements rotate the rows in the down direction.
+                            */
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    intermediate_buffer[j] = face1[i][j];
+                                    move_list.push_back('D');
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face4[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face4[i][j] = temporary_number;
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face3[i][j];//Copies a column and keeps it aside.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face3[i][j] = temporary_number;
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face2[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face5[i][j] = temporary_number;
+                                }
+                            for (int i = 0; i < 256; i++)
+                            {
+                                intermediate_buffer[i] = 0;
+                                row_copy[i] = 0;
+                            }
+                        }
+                    }
+                }
+
+            else if (face_choice == 2)
+            {
+                cout << "Do you want to select a row (r) or a column (c)?: ";
+                cin >> choice;
+
+                if (choice == 'r')
+                {
+                    cout << "Which row do you want to rotate?: ";
+                    cin >> row_choice;
+
+                    cout << "Which rotation do you want to do?:";
+                    cin >> rotation_choice;
+
+                    if (rotation_choice == 'R')
+                    {
+                        /* Explanation of the below statements:
+                         * The below statements rotate the rows in the right direction.
+                         */
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                intermediate_buffer[j] = face2[i][j];
+                                move_list.push_back('R');
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face6[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face4[i][j];//Copies a row and keeps it aside.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face4[i][j] = temporary_number;
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face5[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face5[i][j] = temporary_number;
+                            }
+
+                            for (int i = 0; i < 256; i++)
+                            {
+                                intermediate_buffer[i] = 0;
+                                row_copy[i] = 0;
+                            }
+                        }
+
+                    else if (rotation_choice == 'L')
+                    {
+                        /* Explanation of the below statements:
+                        * The below statements rotate the rows in the left direction.
+                        */
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                intermediate_buffer[j] = face2[i][j];
+                                move_list.push_back('L');
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face5[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face4[i][j];//Copies a row and keeps it aside.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face4[i][j] = temporary_number;
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face6[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+                        }
+
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+                }
+
+                else if (choice == 'c')
+                {
+                    cout << "Which column do you want to rotate?: ";
+                    cin >> column_choice;
+
+                    cout << "Which rotation do you want to do?:";
+                    cin >> rotation_choice;
+
+                    if (rotation_choice == 'U')
+                        {
+                            /* Explanation of the below statements:
+                            * The below statements rotate the columns in the upwards direction.
+                            */
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    intermediate_buffer[j] = face2[i][j];
+                                    move_list.push_back('U');
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face1[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = column_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face1[i][j] = temporary_number;
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face4[i][j];//Copies a column and keeps it aside.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face4[i][j] = temporary_number;
+                                }
+
+
+                            for (int i = row_choice; i < row_choice;)
+                                for (int j = 0; j < 256; i++)
+                                {
+                                    column_copy[j] = face3[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = column_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face3[i][j] = temporary_number;
+                                }
+                        }
+
+                        else if (rotation_choice == 'D')
+                        {
+                            /* Explanation of the below statements:
+                            * The below statements rotate the rows in the down direction.
+                            */
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    intermediate_buffer[j] = face2[i][j];
+                                    move_list.push_back('D');
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face3[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face4[i][j] = temporary_number;
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face4[i][j];//Copies a column and keeps it aside.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face4[i][j] = temporary_number;
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face1[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face1[i][j] = temporary_number;
+                                }
+                            for (int i = 0; i < 256; i++)
+                            {
+                                intermediate_buffer[i] = 0;
+                                row_copy[i] = 0;
+                            }
+                        }
+                    }
+                }
+
+            else if (face_choice == 3)
+            {
+                cout << "Do you want to select a row (r) or a column (c)?: ";
+                cin >> choice;
+
+                if (choice == 'r')
+                {
+                    cout << "Which row do you want to rotate?: ";
+                    cin >> row_choice;
+
+                    cout << "Which rotation do you want to do?:";
+                    cin >> rotation_choice;
+
+                    if (rotation_choice == 'R')
+                    {
+                        /* Explanation of the below statements:
+                         * The below statements rotate the rows in the right direction.
+                         */
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                intermediate_buffer[j] = face3[i][j];
+                                move_list.push_back('R');
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face6[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face1[i][j];//Copies a row and keeps it aside.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face1[i][j] = temporary_number;
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face5[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face5[i][j] = temporary_number;
+                            }
+                        }
+
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+
+                    else if (rotation_choice == 'L')
+                    {
+                        /* Explanation of the below statements:
+                        * The below statements rotate the rows in the left direction.
+                        */
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                intermediate_buffer[j] = face3[i][j];
+                                move_list.push_back('L');
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face5[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face5[i][j] = temporary_number;
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face1[i][j];//Copies a row and keeps it aside.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face1[i][j] = temporary_number;
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face6[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+                        }
+
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+                }
+
+                else if (choice == 'c')
+                {
+                    cout << "Which column do you want to rotate?: ";
+                    cin >> column_choice;
+
+                    cout << "Which rotation do you want to do?:";
+                    cin >> rotation_choice;
+
+                    if (rotation_choice == 'U')
+                        {
+                            /* Explanation of the below statements:
+                            * The below statements rotate the columns in the upwards direction.
+                            */
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    intermediate_buffer[j] = face3[i][j];
+                                    move_list.push_back('U');
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face2[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = column_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face2[i][j] = temporary_number;
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face1[i][j];//Copies a column and keeps it aside.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face1[i][j] = temporary_number;
+                                }
+
+
+                            for (int i = row_choice; i < row_choice;)
+                                for (int j = 0; j < 256; i++)
+                                {
+                                    column_copy[j] = face4[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = column_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face4[i][j] = temporary_number;
+                                }
+                            for (int i = 0; i < 256; i++)
+                            {
+                                intermediate_buffer[i] = 0;
+                                row_copy[i] = 0;
+                            }
                         }
 
                         else if (rotation_choice == 'D')
@@ -413,11 +975,847 @@ public:
                                     temporary_number = intermediate_buffer[j];
                                     face5[i][j] = temporary_number;
                                 }
+                            for (int i = 0; i < 256; i++)
+                            {
+                                intermediate_buffer[i] = 0;
+                                row_copy[i] = 0;
+                            }
                         }
                     }
                 }
+
+            else if (face_choice == 4)
+            {
+                cout << "Do you want to select a row (r) or a column (c)?: ";
+                cin >> choice;
+
+                if (choice == 'r')
+                {
+                    cout << "Which row do you want to rotate?: ";
+                    cin >> row_choice;
+
+                    cout << "Which rotation do you want to do?:";
+                    cin >> rotation_choice;
+
+                    if (rotation_choice == 'R')
+                    {
+                        /* Explanation of the below statements:
+                         * The below statements rotate the rows in the right direction.
+                         */
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                intermediate_buffer[j] = face4[i][j];
+                                move_list.push_back('R');
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face6[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face2[i][j];//Copies a row and keeps it aside.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face2[i][j] = temporary_number;
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face5[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face5[i][j] = temporary_number;
+                            }
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+                    }
+
+                    else if (rotation_choice == 'L')
+                    {
+                        /* Explanation of the below statements:
+                        * The below statements rotate the rows in the left direction.
+                        */
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                intermediate_buffer[j] = face4[i][j];
+                                move_list.push_back('L');
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face5[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face5[i][j] = temporary_number;
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face2[i][j];//Copies a row and keeps it aside.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face2[i][j] = temporary_number;
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face6[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+                        }
+
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+                }
+
                 else if (choice == 'c')
                 {
+                    cout << "Which column do you want to rotate?: ";
+                    cin >> column_choice;
+
+                    cout << "Which rotation do you want to do?:";
+                    cin >> rotation_choice;
+
+                    if (rotation_choice == 'U')
+                        {
+                            /* Explanation of the below statements:
+                            * The below statements rotate the columns in the upwards direction.
+                            */
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    intermediate_buffer[j] = face4[i][j];
+                                    move_list.push_back('U');
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face1[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = column_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face2[i][j] = temporary_number;
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face3[i][j];//Copies a column and keeps it aside.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face3[i][j] = temporary_number;
+                                }
+
+
+                            for (int i = row_choice; i < row_choice;)
+                                for (int j = 0; j < 256; i++)
+                                {
+                                    column_copy[j] = face5[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = column_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face4[i][j] = temporary_number;
+                                }
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+                    }
+
+                        else if (rotation_choice == 'D')
+                        {
+                            /* Explanation of the below statements:
+                            * The below statements rotate the rows in the down direction.
+                            */
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    intermediate_buffer[j] = face4[i][j];
+                                    move_list.push_back('D');
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face1[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face2[i][j] = temporary_number;
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face3[i][j];//Copies a column and keeps it aside.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face3[i][j] = temporary_number;
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face4[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face4[i][j] = temporary_number;
+                                }
+                            for (int i = 0; i < 256; i++)
+                            {
+                               intermediate_buffer[i] = 0;
+                               row_copy[i] = 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            else if (face_choice == 5)
+            {
+                cout << "Do you want to select a row (r) or a column (c)?: ";
+                cin >> choice;
+
+                if (choice == 'r')
+                {
+                    cout << "Which row do you want to rotate?: ";
+                    cin >> row_choice;
+
+                    cout << "Which rotation do you want to do?:";
+                    cin >> rotation_choice;
+
+                    if (rotation_choice == 'R')
+                    {
+                        /* Explanation of the below statements:
+                         * The below statements rotate the rows in the right direction.
+                         */
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                intermediate_buffer[j] = face5[i][j];
+                                move_list.push_back('R');
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face5[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face2[i][j] = temporary_number;
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face2[i][j];//Copies a row and keeps it aside.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face6[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face4[i][j] = temporary_number;
+                            }
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+                    }
+
+                    else if (rotation_choice == 'L')
+                    {
+                        /* Explanation of the below statements:
+                        * The below statements rotate the rows in the left direction.
+                        */
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                intermediate_buffer[j] = face5[i][j];
+                                move_list.push_back('L');
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face4[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face4[i][j] = temporary_number;
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face4[i][j];//Copies a row and keeps it aside.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face4[i][j] = temporary_number;
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face6[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+                        }
+
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+
+                }
+
+                else if (choice == 'c')
+                {
+                    cout << "Which column do you want to rotate?: ";
+                    cin >> column_choice;
+
+                    cout << "Which rotation do you want to do?:";
+                    cin >> rotation_choice;
+
+                    if (rotation_choice == 'U')
+                        {
+                            /* Explanation of the below statements:
+                            * The below statements rotate the columns in the upwards direction.
+                            */
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    intermediate_buffer[j] = face1[i][j];
+                                    move_list.push_back('U');
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face2[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = column_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face2[i][j] = temporary_number;
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face3[i][j];//Copies a column and keeps it aside.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face3[i][j] = temporary_number;
+                                }
+
+
+                            for (int i = row_choice; i < row_choice;)
+                                for (int j = 0; j < 256; i++)
+                                {
+                                    column_copy[j] = face5[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = column_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face5[i][j] = temporary_number;
+                                }
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+                    }
+
+                        else if (rotation_choice == 'D')
+                        {
+                            /* Explanation of the below statements:
+                            * The below statements rotate the rows in the down direction.
+                            */
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    intermediate_buffer[j] = face1[i][j];
+                                    move_list.push_back('D');
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face4[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face4[i][j] = temporary_number;
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face3[i][j];//Copies a column and keeps it aside.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face3[i][j] = temporary_number;
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face2[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face5[i][j] = temporary_number;
+                                }
+                          for (int i = 0; i < 256; i++)
+                          {
+                             intermediate_buffer[i] = 0;
+                             row_copy[i] = 0;
+                          }
+                        }
+                    }
+                }
+            }
+
+            else if (face_choice == 6)
+            {
+                cout << "Do you want to select a row (r) or a column (c)?: ";
+                cin >> choice;
+
+                if (choice == 'r')
+                {
+                    cout << "Which row do you want to rotate?: ";
+                    cin >> row_choice;
+
+                    cout << "Which rotation do you want to do?:";
+                    cin >> rotation_choice;
+
+                    if (rotation_choice == 'R')
+                    {
+                        /* Explanation of the below statements:
+                         * The below statements rotate the rows in the right direction.
+                         */
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                intermediate_buffer[j] = face6[i][j];
+                                move_list.push_back('R');
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face4[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face5[i][j] = temporary_number;
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face2[i][j];//Copies a row and keeps it aside.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face6[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face6[i][j] = temporary_number;
+                            }
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+                    }
+
+                    else if (rotation_choice == 'L')
+                    {
+                        /* Explanation of the below statements:
+                        * The below statements rotate the rows in the left direction.
+                        */
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                intermediate_buffer[j] = face6[i][j];
+                                move_list.push_back('L');
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face2[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face2[i][j] = temporary_number;
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face5[i][j];//Copies a row and keeps it aside.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face5[i][j] = temporary_number;
+                            }
+
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                row_copy[j] = face4[i][j];//Copies the row to keep an unmodified copy of the matrix.
+                                intermediate_buffer[j] = row_copy[j];//Transfers the copy to the row_copy array.
+                            }
+
+                        for (int i = row_choice; i < row_choice;)
+                            for (int j = 0; j < 256; j++)
+                            {
+                                temporary_number = intermediate_buffer[j];
+                                face4[i][j] = temporary_number;
+                            }
+                        }
+
+                        for (int i = 0; i < 256; i++)
+                        {
+                            intermediate_buffer[i] = 0;
+                            row_copy[i] = 0;
+                        }
+                }
+
+                else if (choice == 'c')
+                {
+                    cout << "Which column do you want to rotate?: ";
+                    cin >> column_choice;
+
+                    cout << "Which rotation do you want to do?:";
+                    cin >> rotation_choice;
+
+                    if (rotation_choice == 'U')
+                    {
+                            /* Explanation of the below statements:
+                            * The below statements rotate the columns in the upwards direction.
+                            */
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    intermediate_buffer[j] = face6[i][j];
+                                    move_list.push_back('U');
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face1[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = column_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face5[i][j] = temporary_number;
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face3[i][j];//Copies a column and keeps it aside.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face3[i][j] = temporary_number;
+                                }
+
+
+                            for (int i = row_choice; i < row_choice;)
+                                for (int j = 0; j < 256; i++)
+                                {
+                                    column_copy[j] = face6[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = column_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face5[i][j] = temporary_number;
+                                }
+                            for (int i = 0; i < 256; i++)
+                            {
+                                intermediate_buffer[i] = 0;
+                                row_copy[i] = 0;
+                            }
+                    }
+
+                        else if (rotation_choice == 'D')
+                        {
+                            /* Explanation of the below statements:
+                            * The below statements rotate the rows in the down direction.
+                            */
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    intermediate_buffer[j] = face6[i][j];
+                                    move_list.push_back('D');
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face3[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face5[i][j] = temporary_number;
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face1[i][j];//Copies a column and keeps it aside.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face1[i][j] = temporary_number;
+                                }
+
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    column_copy[j] = face6[i][j];//Copies the column to keep an unmodified copy of the matrix.
+                                    intermediate_buffer[j] = row_copy[j];//Transfers the copy to the column_copy array.
+                                }
+
+                            for (int i = 0; i < 256; i++)
+                                for (int j = column_choice; j < column_choice;)
+                                {
+                                    temporary_number = intermediate_buffer[j];
+                                    face6[i][j] = temporary_number;
+                                }
+                            for (int i = 0; i < 256; i++)
+                            {
+                                intermediate_buffer[i] = 0;
+                                row_copy[i] = 0;
+                            }
+                        }
+                    }
                 }
             }
         return move_list;
